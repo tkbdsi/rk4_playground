@@ -8,18 +8,44 @@
     <script src="plotly-2.12.1.min.js"></script>
 
 </head>
+
+<style>
+    .main {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        line-height: 1.1rem;
+        letter-spacing: 0.5px;
+    }
+
+    .inputs {
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        line-height: 1.1rem;
+        letter-spacing: 0.5px;
+    }
+</style>
+
 <body>
     
 
-  <div style="display: flex; flex-direction: column; align-items: center">
+  <div class="main">
 
-    <div style="width: 100%; display: flex; flex-direction: column; align-items: center">
       <h2>RK4 Playground</h2>
-      <div style="width: 80%; align-items: left">
-        <span>Time Step: <input type="number" min="0" value="0.001" step="0.001" style="width: 300px"/></span>
-      </div>
+
+        <div class="inputs">
+            <span><sup>14</sup>C Baseline Atoms: <input type="number" min="0" value="1000000" step="1" style="width: 100px" id="c-atoms-id"/></span>
+            <span><sup>14</sup>C Half-life: <input type="number" min="0" value="5730" step="0.1" style="width: 100px" id="c-hl-id"/> years</span>
+            <span><sup>14</sup>N Baseline Atoms: <input type="number" min="0" value="0" step="1" style="width: 100px" id="n-atoms-id"/></span>
+            <span><sup>14</sup>N Half-life: <input type="number" min="0" value="inf" step="0.1" style="width: 100px" id="n-hl-id"/> years</span>
+            <span>Time Step: <input type="number" min="0" value="1" step="1" style="width: 100px"/> years</span>
+
+        </div>
+
       <div id="plotlyPlot" style="width:600px;height:400px;text-align:left;"></div>
-    </div>
 
   </div>
 
@@ -27,6 +53,10 @@
 
 <script>
     const plotlyPlot2 = document.getElementById('plotlyPlot');
+    const cAtomsId = document.getElementById('c-atoms-id');
+    const cHLId = document.getElementById('c-hl-id');
+    const nAtomsId = document.getElementById('n-atoms-id');
+    const nHLId = document.getElementById('n-hl-id');
 
     document.addEventListener('DOMContentLoaded', () => {
         Plotly.newPlot( plotlyPlot, [{
