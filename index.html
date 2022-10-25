@@ -27,6 +27,20 @@
         line-height: 1.1rem;
         letter-spacing: 0.5px;
     }
+
+    .cellgroups {
+        display: flex;
+    }
+    .lhcell {
+        width: 175px;
+    }
+    .midcell {
+        width: 125px;
+    }
+    .rhcell {
+        width: 50px;
+    }
+
 </style>
 
 <body>
@@ -37,15 +51,59 @@
       <h2>RK4 Playground</h2>
 
         <div class="inputs">
-            <span><sup>14</sup>C Baseline Atoms: <input type="number" min="0" value="1000000" step="1" style="width: 100px" id="c-atoms-id"/></span>
-            <span><sup>14</sup>C Half-life: <input type="number" min="0" value="5730" step="0.1" style="width: 100px" id="c-hl-id"/> years</span>
-            <span><sup>14</sup>N Baseline Atoms: <input type="number" min="0" value="0" step="1" style="width: 100px" id="n-atoms-id"/></span>
-            <span><sup>14</sup>N Half-life: <input type="number" min="0" value="inf" step="0.1" style="width: 100px" id="n-hl-id"/> years</span>
-            <span>Time Step: <input type="number" min="0" value="1" step="1" style="width: 100px"/> years</span>
+            <div class="cellgroups">
+                <div class="lhcell">
+                    <sup>14</sup>C Baseline Atoms: 
+                </div>
+                <div class="midcell">
+                    <input type="number" min="0" value="1000000" step="1" style="width: 100px" id="c-atoms-id"/>
+                </div>
+            </div>
+            <div class="cellgroups">
+                <div class="lhcell">
+                    <sup>14</sup>C Half-life:
+                </div>
+                <div class="midcell">
+                    <input type="number" min="0" value="5730" step="0.1" style="width: 100px" id="c-hl-id"/>
+                </div>
+                <div class="rhcell">
+                    years
+                </div>
+            </div>
+            <div class="cellgroups">
+                <div class="lhcell">
+                    <sup>14</sup>N Baseline Atoms:  
+                </div>
+                <div class="midcell">
+                    <input type="number" min="0" value="0" step="1" style="width: 100px" id="n-atoms-id"/>
+                </div>
+            </div>
+            <div class="cellgroups">
+                <div class="lhcell">
+                    <sup>14</sup>N Half-life: 
+                </div>
+                <div class="midcell">
+                    <input type="number" min="0" value="inf" step="0.1" style="width: 100px" id="n-hl-id"/>
+                </div>
+                <div class="rhcell">
+                    years
+                </div>
+            </div>
+            <div class="cellgroups">
+                <div class="lhcell">
+                    Time Step: 
+                </div>
+                <div class="midcell">
+                    <input type="number" min="0" value="1" step="1" style="width: 100px"/>
+                </div>
+                <div class="rhcell">
+                    years
+                </div>
+            </div>
 
         </div>
 
-      <div id="plotlyPlot" style="width:600px;height:400px;text-align:left;"></div>
+      <div id="plotlyPlot" style="width:800px;height:600px;text-align:left;"></div>
 
   </div>
 
